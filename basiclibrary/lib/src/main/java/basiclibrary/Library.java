@@ -9,6 +9,9 @@ public class Library {
     public static void main(String[] args) {
 
         roll(4);
+        ContainsDuplicates();
+
+
     }
 
     public static int[] roll(int n) {
@@ -21,16 +24,15 @@ public class Library {
         //populate the array
         for (int i = 0; i < n; i++) {
             result[i] = rand.nextInt(6) + 1;
-            System.out.println(result[i]);
-
-
         }
+
         //return the array
         return result;
     }
 
-    public static boolean ContainsDuplicates(int[] arr) {
+    public static boolean ContainsDuplicates() {
         //iterate through the list
+        int[] arr = roll(4);
         for (int i = 0; i < arr.length; i++) {
             //check if it's in the array already
             for (int j = i + 1; j < arr.length; j++) {
@@ -39,33 +41,36 @@ public class Library {
                     return true;
                 }
             }
-            System.out.println(ContainsDuplicates(arr));
+
 
         }
         return false;
     }
 
-    private static float sum(float[] arr) {
-        float result = 0;
-        for (float num : arr) {
-            result += num;
+//
+
+    public static double calculatedAverage(int[] nums) {
+        double total = 0;
+        for (int i = 0; i < nums.length; i++) {
+            total = +total + nums[i];
+
         }
-        return result;
+//        System.out.println(total);
+        double average = total / nums.length;
+//        System.out.println(average);
+        return average;
     }
 
-    public static float average(float[] arr) {
-        return sum(arr) / arr.length;
-    }
-
-    public static float arrayAverage(float[][] arr) {
-        //create and populate new array of sums
-        float[] toAverage = new float[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            toAverage[i] = average(arr[i]);
+    public static double arrayOfArray(int[][] arrayOfArrays) {
+        double lowestAvg = 1000;
+        for (int i = 0; i < arrayOfArrays.length; i++) {
+            double tempAvg = calculatedAverage(arrayOfArrays[i]);
+            System.out.println("this is the average " + tempAvg);
+            if (tempAvg < lowestAvg) {
+                lowestAvg = tempAvg;
+            }
+            System.out.println("this is the lowest average " + lowestAvg);
         }
-        System.out.println(Arrays.toString(toAverage));
-
-        return average(toAverage);
+        return lowestAvg;
     }
-
 }
