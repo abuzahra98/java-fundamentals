@@ -27,7 +27,7 @@ public class Main {
         } else
             return animal;
     }
-
+//f
     // coin flip
     public static void flipNHeads(int n) {
         int headCount = 0;
