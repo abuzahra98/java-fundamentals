@@ -3,7 +3,7 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant implements ReviewInterface {
+public class Restaurant {
     String name;
     double rating;
     String price;
@@ -23,17 +23,18 @@ public class Restaurant implements ReviewInterface {
 
     List<Review> reviewList = new ArrayList<>();
 
-    @Override
-    public void addReview(String body, String author, int stars) {
-        this.review.body = body;
-        this.review.author = author;
-        this.review.stars = stars;
+//    @Override
+    public String addReview(String body, String author, int stars) {
+
+        this.review=new Review(body,author,stars);
+
         this.rating = ((this.rating + stars) / 2);
         reviewList.add(this.review);
-        System.out.println(reviewList);
+        String temp=reviewList.get(0).toString();
+       return temp;
     }
 
-    @Override
+//    @Override
     public void printReview(List<Review> reviewList) {
         for(Object element : reviewList){
             System.out.println(review.toString());
