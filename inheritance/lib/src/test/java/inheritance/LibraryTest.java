@@ -25,7 +25,7 @@ class LibraryTest {
     }
     @Test
     public void TestReview() {
-        Review test = new Review("big place","dado",2);
+        Review test = new Review("big place","dado",2, establishment);
 
         System.out.println(test.toString());
         String expected = "big place, 2 stars. From dado.";

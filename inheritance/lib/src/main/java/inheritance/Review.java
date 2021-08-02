@@ -6,7 +6,7 @@ public class Review {
     int stars;
 
 
-    public Review(String body, String author, int stars){
+    public Review(String body, String author, int stars, Place establishment){
         this.body = body;
         this.author = author;
         this.stars = stars;
@@ -18,4 +18,5 @@ public class Review {
         System.out.println(String.format("grinds is ono, 5 stars. From Keawe Malapit Okuno III."));
         return String.format("%s, %s stars. From %s.", body, stars, author);
     }
+
 }
