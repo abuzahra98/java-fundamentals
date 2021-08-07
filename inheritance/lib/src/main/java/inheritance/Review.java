@@ -1,15 +1,24 @@
 package inheritance;
 
 public class Review {
+    protected String movie;
     String body;
     String author;
     int stars;
 
 
-    public Review(String body, String author, int stars, Place establishment){
+    public Review(){
         this.body = body;
         this.author = author;
         this.stars = stars;
+
+    }
+
+    public Review(String body, String author, int stars, String movie) {
+        this.body = body;
+        this.author = author;
+        this.stars = stars;
+        this.movie = movie;
 
     }
 

@@ -1,54 +1,50 @@
-//package inheritance;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public abstract class Theater implements ReviewAble {
-//    String name;
-//    List<String> movies = new ArrayList<>();
-//    List<Review> reviews = new ArrayList<>();
-//
-//    public Theater(String name){
-//        this.name = name;
-//    }
-//    public void addMovies(String movie){
-//        movies.add(movie);
-//    }
-//    public void reviewMovie(String movie){
-//        int idx = movies.indexOf(movie);
-//        movies.remove(idx);
-//    }
-//    public String toString(){
-//        String message = String.format("Nmae: %s", name);
-//        String currentMovies = "";
-//        for(String m:movies){
-//            if(movies.indexOf(m) != movies.size()-1){
-//                currentMovies += m +"\n";
-//            }else{
-//                currentMovies += m;
-//            }
-//        }
-//        return message + "\n" + currentMovies;
-//    }
-//    public void addReview(String body, String reviewer, String price, int rating) {
-//        return null;
-//    }
-//    public void addReview(String body, String price, String reviewer, String movie, int stars){
-//        Place establishment = Place.Theater;
-//        Review r = new Review(body,reviewer,stars,establishment);
-//        r.name = name;
-//        r.movie = movie;
-//        reviews.add(r);
-//        System.out.println(r.ToString());
-//    }
-//
-//    public void printReviews(List<Review> reviews) {
-//        System.out.println(this.toString());
-//        for(Review r:reviews){
-//            System.out.println(r.ToString());
-//        }
-//
-//    }
-//
-//
-//}
+package inheritance;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Theater extends Review {
+
+    String name;
+    int rating;
+    List<String> movies;
+    List<Review> reviewList = new ArrayList<>();
+
+
+    public Theater(String name, List<String> movies) {
+        super();
+        this.name = name;
+        this.movies = movies;
+        this.rating = 5;
+    }
+
+    public String toString() {
+        return String.format("This is the Theater: Name: %s, Movies that are playing: %s, Rating: %s", name, movies, rating);
+    }
+
+    public void addMovie(String movie) {
+        this.movies.add(movie);
+    }
+
+    public void removeMovie(String movie) {
+        this.movies.removeIf(mov -> mov.equals(movie));
+    }
+
+    public int addReviewWithMovie(String body, String author, int stars, String movie) {
+        Review review = new Review(body, author, stars, movie);
+        review.body = body;
+        review.author = author;
+        review.stars = stars;
+        review.movie = movie;
+        reviewList.add(review);
+        int numStars = 0;
+        int counter = 0;
+        for (Review reviews : reviewList) {
+            numStars += reviews.stars;
+            counter++;
+        }
+        this.rating = numStars / counter;
+        System.out.println(review.movie);
+        return this.rating;
+    }
+}
