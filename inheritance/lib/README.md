@@ -1,3 +1,28 @@
+
+# Lab 06 Inheritance
+
+This lab was geared toward creating multiple classes, relating
+to each other, and creating Interfaces of the classes in order to
+implement certain features of one class to another.
+In this lab, I created a Restaurant Class and a review class,
+and then an addReview Interface that is called in the
+Restaurant Class as an inheritance.
+
+# Lab 07 Inheritance
+This lab was about adding some additional classes to the repo. A Shop class, and a Theater
+class. The Theater should also contain a list of movies that are playing at the
+theater. The reviews are added to each of those classes as well as an ability to
+add and remove movies from the list of movies at each theater.
+
+## How to test the code
+Tests are built in to the package and can be located here:
+[tests](../inheritance/lib/src/test/java/inheritance)
+
+in the command line run
+``./gradlew test``
+
+
+
 ## Inheritance
 
 **Feature Tasks**
@@ -15,9 +40,9 @@
 - When associate a review with a restaurant, that restaurant’s star rating should change. addReview method updates the Restaurant star rating appropriately.
 
 - if you’re trying to call addReview when the restaurant and the review are already associated, the star rating of the restaurant does not update.
-  
+
 - Create a class to represent a Restaurant. Each Restaurant should have a name, a number of stars betweeen 0 and 5, and a price category (i.e. number of dollar signs).
-  
+
 - Create a class to represent a Review. Each Review should have a body, an author, and a number of stars.
 
 - A Review should be about a single Restaurant. Choose an implementation for this, and implement it. Some considerations:
@@ -35,3 +60,5 @@
 - Review all the things!
 
 - Users are frustrated: they like having a body, an author, and a number of stars, but when they’re reviewing a Theater, they also want to specify which movie they saw.
+
+

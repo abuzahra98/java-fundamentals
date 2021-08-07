@@ -1,54 +1,44 @@
 package inheritance;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop implements ReviewAble {
+public class Shop  {
+
     String name;
-    String cost;
-    Review review;
+    String description;
+    String price;
     int rating;
     List<Review> reviewList = new ArrayList<>();
 
 
-    public Shop(String name, String price, String description){
+    public Shop(String name, String description, String price) {
         this.name = name;
-        this.price = price;
-        this.rating = stars;
         this.description = description;
+        this.price = price;
+        this.rating = 5;
     }
 
     public String toString(){
-        return String.format("Restaurant: Name: %s, Price: %s, Rating: %d, Description: %s", name, price, rating, description);
+        return String.format("This is the Shop: Name: %s, description: %s, Price: %s", name, description, price);
     }
 
 
-
-    public void addReview(String body, String reviewer, String price, int stars){
-        this.review.body = body;
-        this.review.reviewer = reviewer;
-        this.review.rating = stars;
-        this.rating = (this.rating + stars)/2;
-        reviewList.add(this.review);
-    }
-
-    @Override
-    public List<Review> addReview(String body, String reviewer, int rating) {
-        return null;
-    }
-
-    @Override
-    public void printReview(List<Review> reviewList) {
-
-    }
-
-    public void addReview(String body, String price, String movie, String reviewer, int stars) {
-        addReview(body, price, reviewer, stars );
-    }
-
-
-    public void printReviews(List<Review> reviewList){
-        for(Review r:reviews){
-            System.out.println(r.ToString());
+    public int addReview(String body, String author, int stars) {
+        Review review = new Review();
+        review.body = body;
+        review.author = author;
+        review.stars = stars;
+        int numStars = 0;
+        int counter = 0;
+        this.reviewList.add(review);
+        for(Review review1 : reviewList){
+            numStars += review1.stars;
+            counter++;
         }
+        this.rating = numStars/counter;
+        return this.rating;
+
+
     }
 }

@@ -26,7 +26,7 @@ public class Restaurant {
 //    @Override
     public String addReview(String body, String author, int stars) {
 
-        this.review=new Review(body,author,stars, establishment);
+        this.review=new Review();
 
         this.rating = ((this.rating + stars) / 2);
         reviewList.add(this.review);
